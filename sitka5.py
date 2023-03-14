@@ -1,5 +1,3 @@
-#1. handle error checking using try and except
-#2. change file to use death valley data
 
 
 import csv
@@ -23,15 +21,15 @@ for index, column_header in enumerate(header_row):
 for index, column_header in enumerate(header_row1):
     print(index, column_header)
 
-highs = []  #y-axis
+highs = []  
 lows = []
 dates = [] 
-names = [] #x-axis
+names = [] 
 
-highs1 = []  #y-axis
+highs1 = []  
 lows1 = []
 dates1 = [] 
-names1 = [] #x-axis
+names1 = [] 
 
 
 for row in csvfile:
@@ -41,7 +39,7 @@ for row in csvfile:
         thedate = datetime.strptime(row[header_row.index('DATE')],'%Y-%m-%d')
         name = row[header_row.index('NAME')]
     except ValueError:
-        print(f'Missing data for {thedate}') #this skips the date that has missing data
+        print(f'Missing data for {thedate}') 
     else:
         highs.append(high)
         lows.append(low)
@@ -55,7 +53,7 @@ for row in csvfile1:
         thedate1 = datetime.strptime(row[header_row1.index('DATE')],'%Y-%m-%d')
         name1 = row[header_row1.index('NAME')]
     except ValueError:
-        print(f'Missing data for {thedate1}') #this skips the date that has missing data
+        print(f'Missing data for {thedate1}') 
     else:
         highs1.append(high1)
         lows1.append(low1)
@@ -74,23 +72,14 @@ print(dates1)
 import matplotlib.pyplot as plt
 fig = plt.figure()
 
-#plt.plot(dates,highs,c="red",alpha=0.5)
-#plt.plot(dates,lows,c="blue",alpha=0.5)
-"""
-plt.title("Temperature comparison between SITKA AIRPORT, AK US and DEATH VALLEY, CA US", fontsize=16)
-plt.xlabel("", fontsize=10)
-plt.ylabel("Temperature(F)")
-plt.tick_params(axis="both",which="major",labelsize=12)
-plt.fill_between(dates,lows,highs,facecolor="turquoise",alpha=0.1)
-"""
 
 
-plt.subplot(2,1,1) #meaning 2 rows and 1 column and 1 is which graph is going to be 1
+
+plt.subplot(2,1,1) 
 plt.plot(dates,highs,c="red",alpha=0.5)
 plt.plot(dates,lows,c="blue",alpha=0.5)
 plt.title(names[0])
 plt.xlabel("", fontsize=12)
-#plt.ylabel("Temperature(F)")
 plt.tick_params(axis="both",which="major",labelsize=12)
 plt.fill_between(dates,lows,highs,facecolor="blue",alpha=0.1)
 
@@ -100,7 +89,6 @@ plt.plot(dates1,highs1,c="red",alpha=0.5)
 plt.plot(dates1,lows1,c="blue",alpha=0.5)
 plt.title(names1[0])
 plt.xlabel("", fontsize=12)
-#plt.ylabel("Temperature(F)")
 plt.tick_params(axis="both",which="major",labelsize=12)
 plt.fill_between(dates1,lows1,highs1,facecolor="blue",alpha=0.1)
 
