@@ -79,8 +79,8 @@ plt.subplot(2,1,1)
 plt.plot(dates,highs,c="red",alpha=0.5)
 plt.plot(dates,lows,c="blue",alpha=0.5)
 plt.title(names[0])
-plt.xlabel("", fontsize=12)
-plt.tick_params(axis="both",which="major",labelsize=12)
+#plt.xlabel("", fontsize=12)
+#plt.tick_params(axis="both",which="major",labelsize=12)
 plt.fill_between(dates,lows,highs,facecolor="blue",alpha=0.1)
 
 
@@ -88,8 +88,8 @@ plt.subplot(2,1,2)
 plt.plot(dates1,highs1,c="red",alpha=0.5)
 plt.plot(dates1,lows1,c="blue",alpha=0.5)
 plt.title(names1[0])
-plt.xlabel("", fontsize=12)
-plt.tick_params(axis="both",which="major",labelsize=12)
+#plt.xlabel("", fontsize=12)
+#plt.tick_params(axis="both",which="major",labelsize=12)
 plt.fill_between(dates1,lows1,highs1,facecolor="blue",alpha=0.1)
 
 
